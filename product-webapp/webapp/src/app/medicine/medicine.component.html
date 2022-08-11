@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+  <a class="nav-link"  routerLink="/medicine-volunteer" style="position: absolute;
+  right: 0;">Medicine-volunteer</a>
+  </div>
+  
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Medicine List</h2>
+      
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Quantity Available</th>
+            <th>Price</th>
+            <th>category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Medicine of Medicines | async">
+            <td>{{Medicine.medicinename}}</td>
+            <td>{{Medicine.qnt}}</td>
+            <td>{{Medicine.price}}</td>
+            <td>{{Medicine.category}}</td>
+            <td><input type="text" class="form-control" id="Quantity" required [(ngModel)]="Medicine.qnt" name="Quantity">
+              <button (click)="buyMedicine(Medicine.mid,Medicine.qnt)" class="btn btn-submit">Buy Now</button>
+                <button  class="btn btn-info" style="margin-left: 10px">Add to cart</button>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
